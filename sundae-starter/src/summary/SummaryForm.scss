@@ -4,6 +4,7 @@
   border-radius: 12px;
   border: 1px solid #888;
   &_item {
+    position: relative;
     margin-bottom: 12px;
     > input {
       cursor: pointer;
@@ -15,4 +16,30 @@
   padding: 8px 20px;
   border-radius: 99px;
   border: none;
+  transition: 0.3s;
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.item-tooltip {
+  position: absolute;
+  right: -100%;
+  top: 50%;
+  display: none;
+  transform-origin: left center;
+  transform: scale(0) translateY(-50%);
+  transition: 0.3s;
+  &_active {
+    display: inline-block;
+    animation: grow 0.3s forwards;
+  }
+}
+@keyframes grow {
+  from {
+    transform: scale(0) translateY(-50%);
+  }
+  to {
+    transform: scale(1) translateY(-50%);
+  }
 }
